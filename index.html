@@ -3,7 +3,7 @@
         <meta charset="utf-8" />
         <script>
             var params = new URLSearchParams(window.location.search);
-            var hash = decodeURI(window.location.hash.slice(1));
+            var hash = window.location.hash.slice(1);
             var lang = params.get('lang');
             var redirect = `${lang}/console.html#${hash}`;
             if (lang != null) {

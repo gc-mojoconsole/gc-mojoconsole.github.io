@@ -2,7 +2,7 @@ var DEBUG = true;
 var params = null;
 var url = "";
 if (window.location.hash){
-  params = JSON.parse(decodeURI(window.location.hash.slice(1)));
+  params = JSON.parse(decodeURIComponent(window.location.hash.slice(1)));
 } else {
   params = Object.fromEntries(new URLSearchParams(window.location.search));
 }
