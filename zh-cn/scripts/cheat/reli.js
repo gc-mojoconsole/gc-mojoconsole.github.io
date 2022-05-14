@@ -1,4 +1,5 @@
 var filterMethod = "set";
+var lastAffixProp = null;
 
 function genReli() {
     var panel = document.getElementById("panel");
@@ -230,11 +231,9 @@ function updateReliId(reliID, quality) {
     if(!quality) quality = document.getElementById("reli-quality").value;
     var mainPropSelect = document.getElementById("main-prop");
     var affixPropSelect = document.getElementById("affix-prop");
-    var tbody = document.getElementById("tbody-affix-prop");
     
     mainPropSelect.innerHTML = "";
     affixPropSelect.innerHTML = "";
-    tbody.innerHTML = "";
     reli_list.forEach(e => {
         if (! e.contains[quality]) {
             return;
@@ -251,6 +250,11 @@ function updateReliId(reliID, quality) {
                     }
                     mainPropSelect.appendChild(o)
                 });
+                if (item.append != lastAffixProp){
+                    var tbody = document.getElementById("tbody-affix-prop");
+                    tbody.innerHTML = "";
+                    lastAffixProp = item.append;                    
+                }
                 Object.entries(reli_affix_prop[item.append]).forEach(pname => {
                     var o = document.createElement("option");
                     o.innerText = pname[0];
@@ -289,7 +293,6 @@ function updateAffixProp(){
     var affixValue = document.getElementById("affix-value");
     affixValue.innerHTML = "";
     var data = JSON.parse(affixProp.options[affixProp.selectedIndex].attributes["values"].nodeValue);
-    var percent = affixProp.options[affixProp.selectedIndex].attributes["percent"] != null;
     Object.entries(data).forEach((e) => {
         var o = document.createElement("option");
         o.value = e[0];
