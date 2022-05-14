@@ -1,0 +1,195 @@
+html {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  user-select: none;
+  overflow: hidden;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+iframe {
+  border: none;
+  margin: 20px;
+}
+
+button {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  background: none;
+  cursor: pointer;
+  padding: 5px 10px;
+  margin: 0;
+  border-radius: 3px;
+
+  transition: background-color 0.2s ease-in-out;
+}
+
+button:hover {
+  background-color: #eee;
+}
+
+#logo {
+  height: 20px;
+}
+
+#main {
+  background-color: #fff;
+  color: #000;
+  font-size: 12px;
+  padding: 5px;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+#right {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+#titleBar {
+  font-size: 2em;
+  padding: 10px;
+  text-align: left;
+  font-weight: bold;
+  margin-left: 30px;
+}
+
+#status {
+  font-size: 0.7em;
+  float: right;
+  margin-top: -1em;
+  display: flex;
+  align-items: center;
+}
+
+#sidebar {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 200px;
+  background-color: #eee;
+}
+
+.sidebarItem {
+  font-size: 1.4em;
+  padding: 20px;
+  border-bottom: 1px solid #ccc;
+
+  transition: background-color 0.1s ease-in-out;
+}
+
+.sidebarItem:hover {
+  background: #ccc;
+  cursor: pointer;
+}
+
+#content {
+  height: 100%;
+  width: 100%;
+}
+
+.dot {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  border: 2px solid grey;
+  display: inline-block;
+  margin-left: 3px;
+}
+
+.ready {
+  color: lightgreen;
+}
+
+.ready .dot {
+  background-color: lightgreen;
+
+}
+
+.error {
+  color: darkred;
+}
+
+.error .dot {
+  background-color: darkred;
+}
+
+#message {
+  position: absolute;
+  background-color: #00000000;
+  left: 50vw;
+  transform: translateX(-50%);
+  height: fit-content;
+  z-index: 100;
+  top: 0px;
+  opacity: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.messageBox {
+  margin-top: 1em;
+  width: 400px;
+  /* min-height: 60px; */
+  background-color: #f2f3c6;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 10px;
+  overflow: hidden;
+  -webkit-box-shadow: 0px 0px 26px -9px rgba(0,0,0,0.83); 
+  box-shadow: 0px 0px 26px -9px rgba(0,0,0,0.83);
+  padding: 1em 1em;
+  transition: all ease-in-out 0.3s;
+  height: fit-content;
+}
+
+.messageBox.fail {
+  background-color: #f65531;
+
+}
+
+.messageBox.initial {
+  transform: translateY(100%);
+  opacity: 0;
+}
+
+.messageBox.finish {
+  transform: translateY(-100%);
+  opacity: 0;
+  min-height: 0px;
+  height: 0px;
+  margin: -15px;
+}
+
+.messageContent {
+  overflow-wrap: break-word;
+  overflow-y: auto;
+}
+
+.hide {
+  display: none;
+}
+
+.messageBoxTitle {
+  width: 100%;
+  height: 2em;
+  padding-top:1em;
+  text-align: center;
+
+  background: rgb(16,232,253);
+background: linear-gradient(180deg, rgba(16,232,253,1) 0%, rgba(16,248,253,0.5914959733893557) 70%, rgba(249,255,0,0) 100%);
+
+}

@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <script>
+            var params = new URLSearchParams(window.location.search);
+            var hash = window.location.hash;
+            var lang = params.get('lang');
+            var redirect = `${lang}/console.html${hash}`;
+            if (lang != null) {
+                console.log(redirect);
+                window.location = redirect;
+            }
+            document.onclick = function(e) {
+                if (e.target.tagName.toLowerCase() == 'button') {
+                    var lang = e.target.attributes['route'].nodeValue;
+                    var redirect = `${lang}/console.html${hash}`;
+                    window.location = redirect;
+                }
+            }
+        </script>
+    </head>
+
+    <body>
+        Entry point for mojo console frontend.
+        <p>Auto detect language failed, please select your prefered language:</p>
+        <button route="en-us">English</button>
+        <button route="zh-cn">简体中文</button>
+    </body>
+</html>
