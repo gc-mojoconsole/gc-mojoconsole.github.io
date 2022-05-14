@@ -1,7 +1,18 @@
 var DEBUG = true;
+var params = null;
+var url = "";
+if (window.location.hash){
+  params = JSON.parse(decodeURI(window.location.hash.slice(1)));
+} else {
+  params = Object.fromEntries(new URLSearchParams(window.location.search));
+}
+if (params['d']){
+  url += params['d'];
+}
+url += `/mojoplus/api`;
+
 async function sendCommand(payload, method="invoke", background=false, persistent="auto") {
-  let key = new window.URLSearchParams(window.location.search).get("k");
-  let url = '/mojoplus/api';
+  let key = params['k'];
   let data = JSON.stringify({ "k": key, "request": method, "payload": payload });
   if (DEBUG) console.log(payload);
   let response = await fetch(url, {
