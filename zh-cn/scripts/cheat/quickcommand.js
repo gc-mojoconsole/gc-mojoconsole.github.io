@@ -4,6 +4,10 @@ qucick_command = [
     {name: "给予摩拉", command: "give 202", args: [
         {type: "number", default: 100000, width: 145}
     ]},
+    {name: "开启/关闭无敌模式", command: "godmode", args: []},
+    {name: "显示当前体力模式", command: "nostamina", args: []},
+    {name: "启用无限体力模式", command: "nostamina on", args: []},
+    {name: "关闭无限体力模式", command: "nostamina off", args: []},
     {name: "给予原石", command: "give 201", args: [
         {type: "number", default: 10000, width: 120}
     ]},
@@ -13,7 +17,6 @@ qucick_command = [
     {name: "给予相遇之缘", command: "give 224", args: [
         {type: "number", default: 10000, width: 100}
     ]},
-    {name: "开启/关闭无敌模式", command: "godmode", args: []},
     {name: "设置世界等级(需要重新登陆)", command: "setworldlevel", args: [
         {type: "number", default: 8, width: 60}
     ]}, 
