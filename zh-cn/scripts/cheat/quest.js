@@ -25,7 +25,7 @@ function genQuest() {
     </div>
             <div style="border: 1px solid gray; border-radius: 5px; margin-top: 1em; padding: 1em; " >
                 <label for="step-list" >进度选择:</label>
-                <div id="step-list" style="margin-top: 2em; overflow-y: auto; overflow-x: hidden; max-height: 10em;height: 100%; transition: all ease-in-out 0.5s; display: flex; flex-direction: column; ">
+                <div id="step-list" style="margin-top: 2em; overflow-y: auto; overflow-x: hidden; max-height: 10em;justify-content: space-between; transition: all ease-in-out 0.5s; display: flex; flex-direction: column; ">
                 </div>
             </div>
             <input type="hidden" id="quest-name" />
