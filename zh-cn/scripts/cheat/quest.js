@@ -23,9 +23,9 @@ function genQuest() {
                     </div>
                 </div>
     </div>
-            <div style="border: 1px solid gray; border-radius: 5px; margin-top: 1em; padding: 1em; " >
+            <div style="margin-top: 2em; border: 1px solid gray; border-radius: 5px; margin-top: 1em; padding: 1em; " >
                 <label for="step-list" >进度选择:</label>
-                <div id="step-list" style="margin-top: 2em; overflow-y: auto; overflow-x: hidden; max-height: 10em;justify-content: space-between; transition: all ease-in-out 0.5s; display: flex; flex-direction: column; ">
+                <div id="step-list" style="overflow-y: auto; overflow-x: hidden; max-height: 10em; transition: all ease-in-out 0.5s;">
                 </div>
             </div>
             <input type="hidden" id="quest-name" />
@@ -150,6 +150,7 @@ function updateSubQuestList(){
         o.style.background = "linear-gradient(90deg, rgba(215 252 252) 0%, rgba(173,254,255,0.390095413165266) 85%, rgba(173,254,255,0.0) 100%)";
         o.style.paddingRight = "0.3em";
         o.style.height = "100%";
+        o.style.minHeight = "2.5em";
         var id = id_desc[0];
         var desc = id_desc[1] ? id_desc[1] : "缺少描述";
         var content = `
