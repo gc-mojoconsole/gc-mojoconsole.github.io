@@ -1,5 +1,8 @@
 
 var delayedSearch = null;
+var STEP_LENGTH = 100;
+var upperBound = STEP_LENGTH;
+var delayedLoad = null;
 function genItem() {
     var panel = document.getElementById("panel");
     panel.innerHTML = `<div class="form">
@@ -35,11 +38,13 @@ function genItem() {
         if (delayedSearch) {
             clearTimeout(delayedSearch);
         }
-        delayedSearch = setTimeout(() => updateItemList(), 500);
+        upperBound = STEP_LENGTH;
+        delayedSearch = setTimeout(() => updateItemList(), 150);
         document.getElementById("name-list").style.height = "10em";
     };
     document.getElementById("clear").onclick = ()=>{
         document.getElementById("item-search").value = "";
+        upperBound = STEP_LENGTH;
         updateItemList();
     }
     document.getElementById("item-search").onkeydown = (e) => {
@@ -74,6 +79,22 @@ function genItem() {
             
         }
     }
+
+    document.getElementById("name-list").onscroll = (e) => {
+        if (delayedLoad) {
+            clearTimeout(delayedLoad);
+        }
+        delayedLoad = setTimeout(() => {
+            var content = document.getElementById("name-list");
+            var scrollTop = content.scrollTop;
+            var scrollHeight = content.clientHeight;
+            var windowHeight = content.scrollHeight;
+            if ((scrollTop + scrollHeight) > windowHeight * 0.95) {
+                upperBound += STEP_LENGTH;
+                updateItemList();
+            }
+        }, 50);
+    }
     // updateWeaponList();
     // document.getElementById("weapon-filter").onchange = updateWeaponList;
     document.getElementById("execute").onclick = () => {
@@ -87,10 +108,18 @@ function genItem() {
 function updateItemList() {
     var filter = document.getElementById("item-search").value;
     var list = document.getElementById("name-list");
-    list.innerHTML = "";
+    if (upperBound == STEP_LENGTH) {
+        list.innerHTML = "";
+    }
     list.style.height = "10em";
+    var step = -1;
+    var lowerBound = upperBound - STEP_LENGTH;
     item_data.forEach(element => {
         if (filter == "" || element.name.toLowerCase().indexOf(filter.toLowerCase()) != -1) {
+            step += 1;
+            if (step < lowerBound || step > upperBound) {
+                return;
+            }
             var o = document.createElement("label");
             o.style.marginLeft = "0.1em";
             var color = {0:'gray',1: 'white', 2: 'green', 3: 'blue', 4:'purple', 5: 'orange'}[element.level];
