@@ -154,8 +154,8 @@ function updateSubQuestList(){
         var desc = id_desc[1] ? id_desc[1] : "缺少描述";
         var content = `
             <div style="padding-left: 0.2em;">
-                <div style="color: green;">${quest_name} 节点: ${current}/${total}</div>
-                <div style="margin-left: 1em; font-style: italic;font-size: 0.8em;">${desc}</div>
+                <div style="color: green; font-style: italic; font-size: 0.8em;">${quest_name} 节点: ${current}/${total}</div>
+                <div style="margin-left: 1em; font-size: 1em;">${desc}</div>
             </div>
             <div>
                 <button class="success" quest-id="${id}" class="">添加</button>
