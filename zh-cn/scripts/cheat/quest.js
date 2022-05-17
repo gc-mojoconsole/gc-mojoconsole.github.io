@@ -137,15 +137,25 @@ function updateSubQuestList(){
     var total = quest_list[quest_name].length;
     var current = 0;
     step_list.innerHTML = "";
-    quest_list[quest_name].forEach(id => {
+    quest_list[quest_name].forEach(id_desc => {
         current += 1;
         var o = document.createElement("div");
         o.style.display = "flex";
         o.style.alignItems = "center";
         o.style.justifyContent = "space-between";
         o.style.marginRight = "1em";
+        o.style.marginTop = "0.4em";
+        o.style.borderLeft = "0.3em solid green";
+        o.style.borderRadius = "6px";
+        o.style.background = "linear-gradient(90deg, rgba(215 252 252) 0%, rgba(173,254,255,0.390095413165266) 85%, rgba(173,254,255,0.0) 100%)";
+        o.style.paddingRight = "0.3em";
+        var id = id_desc[0];
+        var desc = id_desc[1] ? id_desc[1] : "缺少描述";
         var content = `
-            <div>${quest_name} 进度: ${current}/${total}</div>
+            <div style="padding-left: 0.2em;">
+                <div style="color: green;">${quest_name} 节点: ${current}/${total}</div>
+                <div style="margin-left: 1em; font-style: italic;font-size: 0.8em;">${desc}</div>
+            </div>
             <div>
                 <button class="success" quest-id="${id}" class="">添加</button>
                 <button class="warning" quest-id="${id}" class="">完成</button>
