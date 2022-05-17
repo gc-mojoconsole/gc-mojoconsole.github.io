@@ -149,6 +149,7 @@ function updateSubQuestList(){
         o.style.borderRadius = "6px";
         o.style.background = "linear-gradient(90deg, rgba(215 252 252) 0%, rgba(173,254,255,0.390095413165266) 85%, rgba(173,254,255,0.0) 100%)";
         o.style.paddingRight = "0.3em";
+        o.style.height = "100%";
         var id = id_desc[0];
         var desc = id_desc[1] ? id_desc[1] : "缺少描述";
         var content = `
