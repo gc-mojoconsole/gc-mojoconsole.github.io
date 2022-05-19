@@ -5,7 +5,7 @@ on:
     branches:
       - "main"
 jobs:
-  Build-Server-Jar:
+  Pack-Frontend-File:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
