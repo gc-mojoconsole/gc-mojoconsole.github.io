@@ -13,7 +13,8 @@ url += `/mojoplus/api`;
 
 async function sendCommand(payload, method="invoke", background=false, persistent="auto") {
   let key = params['k'];
-  let data = JSON.stringify({ "k": key, "request": method, "payload": payload });
+  let key2 = params['k2'];
+  let data = JSON.stringify({ "k": key, "k2": key2, "request": method, "payload": payload });
   if (DEBUG) console.log(payload);
   let response = await fetch(url, {
     method: 'POST',
