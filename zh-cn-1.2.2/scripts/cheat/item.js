@@ -9,8 +9,8 @@ function genItem() {
     <h2>发送道具</h2>
             <label for="method">发送方式:</label>
             <select id="method">
-                <option value="give"/> 直接给予 </option>
-                <!-- <option value="drop"/> 周围掉落 </option> -->
+                <option value="give" prepend="x" /> 直接给予 </option>
+                <option value="drop"/> 周围掉落 </option>
             </select>
             <label for="item-search">道具名称:</label>
                 <div style="display: flex; flex-direction: column;">
@@ -101,7 +101,9 @@ function genItem() {
         var method = document.getElementById("method").value;
         var itemId = document.getElementById("item-id").value;
         var amount = document.getElementById("amount").value;
-        sendCommand(`${method} ${itemId} x${amount}`);
+        var m = document.getElementById("method");
+        var prepend = m.children[m.selectedIndex].getAttribute("prepend") || "";
+        sendCommand(`${method} ${itemId} ${prepend}${amount}`);
     }
 }
 

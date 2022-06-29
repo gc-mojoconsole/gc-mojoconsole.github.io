@@ -6,8 +6,8 @@ function genItem() {
     <h2>Send Items to you</h2>
             <label for="method">Give method:</label>
             <select id="method">
-                <option value="give"/> Give </option>
-                <!-- <option value="drop"/> Drop </option> -->
+                <option value="give" prepend="x" /> Give </option>
+                <option value="drop" /> Drop </option>
             </select>
             <label for="item-search">Item Name:</label>
                 <div style="display: flex; flex-direction: column;">
@@ -80,7 +80,9 @@ function genItem() {
         var method = document.getElementById("method").value;
         var itemId = document.getElementById("item-id").value;
         var amount = document.getElementById("amount").value;
-        sendCommand(`${method} ${itemId} x${amount}`);
+        var m = document.getElementById("method");
+        var prepend = m.children[m.selectedIndex].getAttribute("prepend") || "";
+        sendCommand(`${method} ${itemId} ${prepend}${amount}`);
     }
 }
 
