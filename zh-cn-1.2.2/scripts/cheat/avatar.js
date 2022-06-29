@@ -29,9 +29,9 @@ function genAvatar() {
         var amount = document.getElementById("amount").value;
         var level = document.getElementById("level").value;
         if (characterId){
-            sendCommand(`givechar ${characterId} ${level}`);
+            sendCommand(`give ${characterId} lv${level}`);
             if (amount > 0) {
-                sendCommand(`give ${characterId % 1000 + 1100} ${amount}`);
+                sendCommand(`give ${characterId % 1000 + 1100} x${amount}`);
             }
         }
     }

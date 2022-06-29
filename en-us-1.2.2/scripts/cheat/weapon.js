@@ -28,7 +28,7 @@ function genWeapon() {
         var amount = document.getElementById("amount").value;
         var level = document.getElementById("level").value;
         var refine = document.getElementById("refine").value;
-        sendCommand(`give ${weaponId} ${amount} ${level} ${refine}`);
+        sendCommand(`give ${weaponId} x${amount} lv${level} r${refine}`);
     }
 }
 

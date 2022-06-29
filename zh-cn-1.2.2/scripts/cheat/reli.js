@@ -143,7 +143,7 @@ function genReli() {
         Array.prototype.forEach.call(document.getElementsByClassName("affix-data"), (e)=>{
             affix += " " + e.value;
         })
-        sendCommand(`giveart ${reliId} ${mainPropId} ${affix} ${parseInt(level)+1}`.replace("  ", " "));
+        sendCommand(`give ${reliId} ${mainPropId} ${affix} lv${parseInt(level)+1}`.replace("  ", " "));
     }
     document.getElementById("by-set").onchange();
     updateQualityList();
